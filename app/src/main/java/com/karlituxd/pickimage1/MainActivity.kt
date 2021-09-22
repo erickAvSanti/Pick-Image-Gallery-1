@@ -35,13 +35,8 @@ class MainActivity : AppCompatActivity() {
             }
 
         findViewById<Button>(R.id.my_button).setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                val enrollIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-                startForResult.launch(enrollIntent)
-
-            } else {
-                TODO("VERSION.SDK_INT < KITKAT")
-            }
+            val enrollIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            startForResult.launch(enrollIntent)
         }
     }
 }
