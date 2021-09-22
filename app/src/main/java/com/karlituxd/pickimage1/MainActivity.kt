@@ -35,8 +35,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         findViewById<Button>(R.id.my_button).setOnClickListener {
-            val enrollIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-            startForResult.launch(enrollIntent)
+            val enrollIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            if(enrollIntent.resolveActivity(packageManager) != null){
+                startForResult.launch(enrollIntent)
+            }
         }
     }
 }
